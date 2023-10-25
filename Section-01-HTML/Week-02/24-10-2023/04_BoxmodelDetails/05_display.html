@@ -15,12 +15,31 @@
         } 
           #box2{
         background-color: brown;
-        display: none;
+       /* display:none;
+          display:block;
+        visibility: hidden; */
+        visibility: visible;
         
         }
           #box3{
         background-color: red;
         }
+        a{
+          /* display: block; */
+          display: inline-block;
+          width: 100px;
+        }
+        /* 
+        inline-block:Bir elementin,inline olmayan devametmesini ancak bazı block
+        özelliklerini kazanmasını sağlar.
+        inline elementi etki etmeyen özellikler;
+        1)width, height
+        2)margin-top,margin-bottom
+        3)padding-top,padding-bottom
+        *Eğer bir inline elemente,yukarıdaki özelliklerin etki etmesini istiyorsak onu inline-block yapmalıyız.
+        *Eger bir block elementin inline olmasını ama block özelliklerini taşımaya devam etmesini istiyorsak onu 
+        yine inline-block yapmalıyız. 
+         */
     </style>
 </head>
 <body>
@@ -28,6 +47,8 @@
      <div class="box" id="box1">First Box</div>
      <div class="box" id="box2">Second Box</div>
      <div class="box" id="box3">Third Box</div>
+     <a href="#">Google</a>
+    <a href="#">Microsoft</a>
     </div>
 </body>
 </html>

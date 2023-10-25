@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+#main-header {
+    background-color: tomato;
+    padding: 10px 25px;
+    height: 100px;
+}
+a{
+    text-decoration: none;
+
+}
+
+#main-header>a{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#main-nav{
+     display: inline-block;
+     width: calc(100% - 270px);
+     /* width: 1245px; */
+     text-align: end;
+}
+
+#main-header>nav>a {
+    background-color: green;
+    color: white;
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    padding:5px;
+    border-radius: 10px;
+   height: 35px;
+    /* line-height: 1; */
+    font-size: 16px;
+
+}
+ #main-nav a:hover{
+    background-color:white;
+    color: green;
+    font-weight: bold;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+ }
+ #main-content{
+    height: calc(100vh-65px);
+
+ }
+#show-case{
+    height: 1%;
+    background-color: aqua;
+}
+
+
+/* olmadı tekar yazz */
+
+
+ bakarsın  /* https: //www.google.com/search?q=css+line-height+default+value&sca_esv=576560510&hl=tr&tbm=isch&source=lnms&sa=X&ved=2ahUKEwivydfr6pGCAxUFQvEDHYFPDj8Q_AUoAXoECAEQAw&biw=1539&bih=747&dpr=1.25 */
