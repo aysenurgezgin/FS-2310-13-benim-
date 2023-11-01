@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+:root {
+    --primary-color: #219C90;
+    --secondary-color: #E9B824;
+    --text-color: #EE9322;
+    --light-color: #D83F31;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.container {
+    /* background-color: var(--secondary-color); */
+    color: var(--black-color);
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    /* background-color: rgb(209, 209, 209); */
+}
+
+.header-logo {
+    font-size: 30px;
+    font-weight: 500;
+    /* background-color: aqua; */
+}
+
+.main-nav {
+    /* background-color: #D83F31; */
+}
+
+.main-nav-items {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    /* gap:20px; */
+    column-gap: 20px;
+
+}
+
+.main-nav-item {
+    /* margin-left: 20px; */
+    height: 30px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-nav-item a {
+    font-weight: 300;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-nav-item a:hover{
+    background-color: var(--primary-color);
+    color:var(--white-color);
+}
+.main{
+    
+}
+#show-case{
+    
+    background: linear-gradient(to top left, rgba(0, 0, 0, 0.1), rgba(0,0, 0, 0.4)),url("/images/home-bg.jpeg");
+    background-size: cover;
+    background-size: center;
+    height: 80vh;
+    display: flex;
+        flex-direction: column;
+    justify-content: center;
+}
+#show-case-content{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    /* background-image: url("/images/home-bg.jpeg"); */
+    
+   
+
+}
+#show-case-content h2{
+    font-size: 80px;
+    font-weight: 300;
+    color:var(--primary-color);
+}
+#show-case-content h3{
+    color: var(--white-color);
+}
+.how-it-works {
+    display: flexbox;
+    column-gap: 20px;
+    padding: 25px;
+}
+.fa-solid {
+    font-size: 60px;
+}
+.fa-regular {
+    color: #219C90;
+}
