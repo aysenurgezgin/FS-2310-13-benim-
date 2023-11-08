@@ -1,0 +1,26 @@
+.kutu {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* margin: 10px; */
+    /* margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px; */
+    /* margin: 10px 20px 30px 40px; */
+    /* margin-top:20px;
+    margin-bottom:20px;
+    margin-left: 30px;
+    margin-right: 30px; */
+    /* margin: 10px 30px; */
+    /* margin: 10px 40px 60px;
+    margin: 30px 50px 30px 20px; */
+    margin: 20px;
+    margin-left: 0;
+    display: inline-block;
+
+}
+
+body {
+    margin: 0;
+}
