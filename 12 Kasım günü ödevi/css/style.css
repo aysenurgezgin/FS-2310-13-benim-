@@ -8,12 +8,13 @@
 }
 body{
     font-size: Roboto;
-    font-size: 18px;
-    font-weight: 300;
+    /* font-size: 18px; */
+    /* font-weight: 300; */
 
 }
 .header{
     display: inline-flex;
+    /* justify-content: center; */
 
 }
 .main-header{
@@ -27,30 +28,40 @@ body{
 
 }
 .navbar{
-    height: 100%;
+    height: 50%;
+     text-decoration: none;
+     color: var(--bg-gray);
 }
 .menu{
     /* buna bak */
     width: 100%;
     height: 100%;
-    padding-right: 15px;
+    padding-right: 15px; 
+    
+   
 }
 .main-header ul{
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    /* align-items: center; */
     column-gap: 10px;
     height: 100%;
+    /* text-align: none; */
+    
+   
 }
+
 .main-about{
+     justify-items: center;
     align-content: center;
      justify-content: center;
-     display: contents;
+     display: flex;
+     background-color: var(--bg-orange-);
 }
   
 .about-image{
-   
+   h
 }
 
 .menu{
@@ -62,14 +73,16 @@ body{
     column-gap: 10px;
     height: 100%;
 }
-.section{
-     display: ; 
-     flex-direction: row-reverse;
+.second-section{
+    display: block;
+    justify-content: center;
+
 }
 .image-2-about{
-    
+    display: inline-block ;
      justify-content: left;
-    
+    align-items: center;
+    width: 100%;
      
 }
 .image-2{
@@ -79,8 +92,25 @@ body{
     margin:25px 10px 0px 0px;
 }
 .search-item{
-  display: inline-block;
+  
   height: 500px;
   background-color:var(--text-gray);
-  padding: 10px 40px 10px 15px;
+  vertical-align: center;
+  
+}
+.menu-items{
+    display: flex;
+    justify-content: right;
+    list-style-type: none;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 10px;
+    padding: 20px;
+}
+.sub-nav{
+    list-style-type: none;
+    align-items: center;
+    padding: 10px;
+    color: black;
+
 }
