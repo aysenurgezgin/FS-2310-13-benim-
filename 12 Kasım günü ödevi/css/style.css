@@ -15,12 +15,13 @@ body{
 .header{
     display: inline-flex;
     /* justify-content: center; */
+    text-decoration: none;
 
 }
 .main-header{
     height: 70px;
     color: var(--bg-gray);
-    /* position: fixed; */
+    position: fixed;
     /* position: fixed; */
     top: 0;
     width: 100%;
@@ -34,20 +35,21 @@ body{
 }
 .menu{
     /* buna bak */
-    width: 100%;
+    /* width: 100%;
     height: 100%;
-    padding-right: 15px; 
+    padding-right: 15px;  */
     
    
 }
-.main-header ul{
+.menu ul{
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    /* align-items: center; */
+    align-items: center;
     column-gap: 10px;
     height: 100%;
-    /* text-align: none; */
+    text-align: none;
+    width: 100%;
     
    
 }
@@ -58,6 +60,7 @@ body{
      justify-content: center;
      display: flex;
      background-color: var(--bg-orange-);
+ 
 }
   
 .about-image{
@@ -67,11 +70,13 @@ body{
 .menu{
     list-style-type: none;
     display: flex;
+    
     justify-content: flex-end;
     align-items: center;
      /* bunu ve column-gap neden tam anlayamadım */
     column-gap: 10px;
     height: 100%;
+    
 }
 .second-section{
     display: block;
@@ -93,9 +98,11 @@ body{
 }
 .search-item{
   
-  height: 500px;
+  height: 0px;
   background-color:var(--text-gray);
   vertical-align: center;
+  display: flex;
+  align-items: center;
   
 }
 .menu-items{
@@ -112,5 +119,26 @@ body{
     align-items: center;
     padding: 10px;
     color: black;
+
+}
+.icons{
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    /* width: 50%; */
+    text-align: center;
+    /* height:; */
+    /* padding: 25px 40px 45px 10px; */
+    margin: 10px;
+
+
+}
+.image-3{
+    padding: 20px;
+    /* border: ; */
+    border-radius: 50%;
+    display: block;
+    /* width: 68px;
+    height: 68px; */
 
 }
