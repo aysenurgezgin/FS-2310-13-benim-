@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Benim yorumlarım;alert mesaj vermiş oluruz tek tırnak kullanıyoruz strig yapısında anlarsın 
+    body ve haed içine yazılabilr =internal
+herşey gözüksün en alta yazması body en altına yazılır=büyük çaplı uygulamalar için hazırlıkm olsun
+html elementlerine referens kodları o elmemntlerden sonra olmalı
+bir daha bak 22 dakikaya bak
+ilk olarak butonu tanımla sonra kodu yazmaya başla
+öncelik inline sonra diğerleri
+body en alt kısmına yaz -->
+
+    <button id="button" onclick="alert('Butona tıkladın!(Yöntem-1-Inline)');">Bana Tıkla</button>
+    <!-- <button id="button-1">Bana Tıkla</button>
+    <button id="button-2">Bana Tıkla</button> -->
+    
+
+    
+    <script>
+       document.getElementById("button").addEventListener("click",()=>{
+        alert("Butona tıkladın!(Yöntem-2-Internal)")
+       })
+    </script>
+
+
+    <script src="app.js">
+        // Buraya js kodu yazılmaz eğer src belirtmişsem.
+    </script>
+</body>
+</html>

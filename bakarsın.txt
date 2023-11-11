@@ -1,0 +1,8 @@
+https://tc39.es/ecma262/
+dili çok ağırdır;gelişimsel format
+eksikliği (mdn)karşılıyor
+js ; konulur ama zorunlu değildir.koymadığı zamanlar da oluyor
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+detaylara bkabilirsin
+buraya da bakabiilirsin
+https://insights.stackoverflow.com/trends?tags=java%2Cc%2Cc%2B%2B%2Cpython%2Cc%23%2Cvb.net%2Cjavascript%2Cassembly%2Cphp%2Cperl%2Cruby%2Cvb%2Cswift%2Cr%2Cobjective-c
