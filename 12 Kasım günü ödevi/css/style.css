@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing:border-box;
-    width: 0;
+    /* width: 0; */
 
 }
 body{
@@ -17,7 +17,7 @@ body{
     display: inline-flex;
     /* justify-content: center; */
     text-decoration: none;
-    width: 1200px;
+    /* width: 1200px; */
 
 }
 .main-header{
@@ -28,12 +28,16 @@ body{
    
     /* width: 100%;
     opacity: .6; */
-
+  padding: 10px;
+   
+  display: flex;
+     justify-content: right;
 }
 .navbar{
     height: 50%;
      text-decoration: none;
      color: var(--bg-gray);
+   
 }
 .menu{
     /* buna bak */
@@ -53,7 +57,7 @@ body{
     text-align: none;
     /* width: 100%; */
     font-size: 20px;
-    width: 120px;
+    /* width: 120px; */
     
    
 }
@@ -69,7 +73,7 @@ body{
      justify-content: center;
      display: flex;
      background-color: var(--bg-orange-);
-     width: 120px;
+     /* width: 120px; */
  
 }
   
