@@ -66,11 +66,12 @@ body{
      justify-content: center;
      display: flex;
      background-color: var(--bg-orange-);
+     width: 120px;
  
 }
   
 .about-image{
-   h
+   width: 120px;
 }
 
 .menu{
@@ -89,6 +90,7 @@ body{
     justify-content: center;
     font-weight: 100px;
      border: none;
+     width: 120px;
 }
 .image-2-about{
     display: inline-block ;
