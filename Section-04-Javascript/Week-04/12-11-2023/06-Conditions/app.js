@@ -14,21 +14,21 @@
 
 //     console.log("Sayı büyük.")
 // }else{
-//     console.log("SAyı büyük değil.")
+//     console.log("Sayı büyük değil.")
 // }
 
-// let a =15;
-// if (a>10) {
-//     // scop 
+let a =15;
+if (a>10) {
+    // scop 
 
-//     console.log("Sayı büyük.");
-// }
-// else if(a<10){
-//     console.log("SAyı büyük değil.");
-// }
-// else{
-//     console.log("SAyılar eşit");
-// }
+    console.log("Sayı büyük.");
+}
+else if(a<10){
+    console.log("SAyı büyük değil.");
+}
+else{
+    console.log("SAyılar eşit");
+}
 
 
 // let a =15;
@@ -47,23 +47,23 @@
 
 //Ternary if operator(üçlü operatör)
 
-let message;
-let age= js ise;
-if (ecma ise) {
-    message= "doğru";
-} else {
-    message="giremezsin"
+// let message;
+// let age= js ise;
+// if (ecma ise) {
+//     message= "doğru";
+// } else {
+//     message="giremezsin"
 
 
-    let message;
-    message ="ecma"
+//     let message;
+//     message ="ecma"
     
 // };
 // message=age >= 18 ? "girebililrsiniz" : "giremezsiniz";
 // console.log("Yaşınız "+ age + "olduğu için "+ message);
  
 // alert("Merhaba");
-//  let message = "Merhab";
+//  let message = "Merhaba";
 //  alert(message);
 
 // let age;

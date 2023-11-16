@@ -2,6 +2,7 @@
 // let kisi2=24;
 // let kisi3=54;
 // let ortalama=(kisi1+kisi2+kisi3)/3; köşeli parantez görünce bunun bir dizi olduğunu bil idexler 0 ve 1
+//dizi ; birden fazla veri içinde bulundurma görevini(yapı) üstlenmektedir.
 
 
 // let products=[];
