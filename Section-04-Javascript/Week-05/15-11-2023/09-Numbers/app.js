@@ -1,6 +1,7 @@
 let result;
 //  tam sayı gereken durumlarda parseInt 
-//  örtülü dönüştürücü strinleri kaldırıyor tırnak dönüşrüsüleri dene/başlangıçtan itibaren alınması gereken sayıları alır(tipi string olması durumu =number a çevirmen gerekebilir) to fixed kullanılış amacı
+//  örtülü dönüştürücü strinleri kaldırıyor tırnak dönüşrüsüleri dene/başlangıçtan itibaren alınması gereken sayıları
+//  alır(tipi string olması durumu =number a çevirmen gerekebilir) to fixed kullanılış amacı
 result=parseInt(10.9);
 result = parseInt("10.4");
 result=parseFloat("101.56");
