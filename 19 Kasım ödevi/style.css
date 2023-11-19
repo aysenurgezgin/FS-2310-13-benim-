@@ -123,3 +123,7 @@ body{
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
 }
+.main-contact{
+    display: flex;
+    
+}
