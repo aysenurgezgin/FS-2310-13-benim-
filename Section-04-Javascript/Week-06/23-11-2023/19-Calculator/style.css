@@ -1,27 +1,24 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* rem kullanıcaz ,default u 16 'ydı'  1 rem 16px
-relative nedir   */
-html{
+
+html {
     font-size: 10px;
 }
-.calculator{
+
+.calculator {
     border: .1rem solid #ccc;
     border-radius: .5rem;
     width: 40rem;
     position: absolute;
     top: 50%;
     left: 50%;
-   /* div e özellik değiştirme ekliycez */ 
-   transform: translate(-50%,-50%);
-   /* yatay (ilk burası) ve dikeyde belirilen kadar kaydırılıyor */
-
+    transform: translate(-50%, -50%);
 }
 
-.calculator-input{
+.calculator-input {
     background-color: black;
     color: white;
     width: 100%;
@@ -32,48 +29,45 @@ html{
     font-size: 4rem;
     text-align: end;
     padding-right: 1rem;
-
 }
-/* grid yapısı flex yapısı gibi =tamamen stenilen kadar parçalanmasını sağlar
-tek satır tek sütun block oldular default yapısı budur
-sütun şablonu için template column kullandık */
-.calculator-keys{
+
+.calculator-keys {
     display: grid;
-    /* grid-template-columns: 80px 80px 80px 80px; bunun yerine alttakini kullandık */
-    /* grid-template-columns:repeat(4,80px) ;
-    frection =her birinin bribirine eşit olması için fr koyduk */
-    /* grid-template-columns: 1fr 1fr 1fr 1fr;  5 parcaya böldü*/
     grid-template-columns: repeat(4, 1fr);
-    /* birbirlerine yapışık olmamalsı için gap ekledik */
     grid-gap: 2rem;
     padding: 2rem;
-
 }
-button{
+
+button {
     height: 60px;
     border-radius: .3rem;
     border: .1rem solid #ccc;
     cursor: pointer;
     font-size: 2.5rem;
-    /* color: #563838; */
+    /* color: #3d3b3b; */
     background-color: #fff;
 }
-button:hover{
-    background-color: #e7e3e3;
+
+button:hover {
+    background-color: #f3eeee;
 }
-.operator{
+
+.operator {
     color: #336cac;
     font-size: 3rem;
     font-weight: bold;
 }
-.clear{
- background-color: tomato;
- color: white;
+
+.clear {
+    background-color: tomato;
+    color: white;
 }
-.clear:hover{
+
+.clear:hover {
     background-color: tomato;
     opacity: .9;
 }
+
 .sign-operator{
     background-color: #336cac;
     color: #fff;
