@@ -4,7 +4,7 @@
  
 //Bizim burada ki senaryomuz şu olsun; daha önce yapmış olduğumuz bir toplama işlemi vardı:içerisine birden fazla da sayı gitse toplayabiliyordu,ben hangi js dosyam da çalışıyorsam çalışayım bu fonksiyonu kolaylıkla çalıştırmak istiyorum,her yerde bir daha yazmak istemiyorum; bu tarz işlemler için bu modülü hazırladık:
 
-//a) burada öğrenmiş olduğumuz arrow fonk(rest parameters değil mi?) kullanlım,daha önceki yaptığımızla benzer şekilde yaptık; bir değişkenin içine alıcam(const) sayı dizimi = yaparak öncelikle dışardan geleni alıyoruz bunu bu şeklde almayıp kullandığımız durumkarda var tabiki,akabinde bir tane toplam değişkeni tanımlıyoruz başlangıç değeri 0 olan sonrada bir for döngüsü bitince yine const skobunun içinddeyken return ettiriznereden ietiyorsak oradan geri döndür
+//a) burada öğrenmiş olduğumuz arrow fonk(rest parameters değil mi?) kullanlım,daha önceki yaptığımızla benzer şekilde yaptık; bir değişkenin içine alıcam(const) sayı dizimi = yaparak öncelikle dışardan geleni alıyoruz bunu bu şeklde almayıp kullandığımız durumlarda var tabiki,akabinde bir tane toplam değişkeni tanımlıyoruz başlangıç değeri 0 olan sonrada bir for döngüsü bitince yine const skobunun içindeyken return ettiriz nereden istiyorsak oradan geri döndür
 
 // const getTotal=(...numbers)=>{
 //     const numbersArray=[...numbers];

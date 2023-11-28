@@ -17,7 +17,7 @@
 
 // b)clg yazmayalım da bunu değişkenlerin içine alalım şuan da(üstte) ... gibi birşey tanımlamak zorundayım ismi rest parameters olan,bir dizi tanımlayalım let ile
 // ve bu lest parameters ı buraya nasıl aldımizi görmek için clg ye yazdığımız gibi let array= [...parameters] şimdi istediğimiz gibi kullanabileceğimiz let array imiz var
-// calculateCircileArea ya gönderirken yarıçapı göndermek istiyorum sonra pi yield;bir depişken daha tanımlıyoruz let r ,let pi diye iki
+// calculateCircileArea ya gönderirken yarıçapı göndermek istiyorum sonra pi yi eld;bir depişken daha tanımlıyoruz let r ,let pi diye iki
 const calculateCircileArea2=(...parameters)=>{
    let array =[...parameters];
    let r= array[0];
@@ -27,13 +27,13 @@ const calculateCircileArea2=(...parameters)=>{
 // console.log(calculateCircileArea2(5,3,14));
 //  c)varsayılanla daha kolay yazabilidğim  fonk rest parametres ile daha zor yazdık ama asıl konu ben bu rest parametrs ı nerede kullanabilirm?
 
-// soru? içerisine gönderilen sayıları toplayıp,sonucu ekrana yazdıaran arrow fonk hazırla
-// açıklaması; sayılar geleceği için numbers dedik,for döngüsünde i'yi 0 almamızın sebebi elimde bir dizi var dizinin de ilk elemanın index'0 0 dan başla demiş olduk,iküçük olduğu müddetçe neyden array'in(total) length'inden.iki numbers
+// soru? içerisine gönderilen sayıları toplayıp,sonucu ekrana yazdıran arrow fonk hazırla
+// açıklaması; sayılar geleceği için numbers dedik,for döngüsünde i'yi 0 almamızın sebebi elimde bir dizi var dizinin de ilk elemanın index'0 0 dan başla demiş olduk,i küçük olduğu müddetçe neyden array'in(total) length'inden.iki numbers
 // da birbirinden farklı biri rest parameters biri (let numbersArray)klasik değişken.akabinde de i'nin değerini her defasında bir arttıracağımızı söylüyoruz bundan sonrada toplamak çok kolay;total+= sıradaki numbers dzisinin elemamı yani[i];ve 
-// nihayetinde bulmuş olduğum total' for döngüsünün akabinde ama fonk skobunun içinde geri döndüreyim "return  total "ile.Skobun dışına çıkıp clg ile içine(getTotal(itnilen sayılar virgül ile ayırmak suretiyle)) yazdıktan sonra consoldan kontrol et.
+// nihayetinde bulmuş olduğum total' for döngüsünün akabinde ama fonk skobunun içinde geri döndüreyim "return  total "ile.Skobun dışına çıkıp clg ile içine(getTotal(istenilen sayılar virgül ile ayırmak suretiyle)) yazdıktan sonra consoldan kontrol et.
 
 
-// ne gönderdiğin önmli değil için o toplar
+// ne gönderdiğin önmli değil onun için o toplar;
 const getTotal=(...numbers)=>{
     let numbersArray=[...numbers];
     let total=0;

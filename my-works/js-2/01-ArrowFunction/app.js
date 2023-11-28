@@ -2,15 +2,16 @@ function selamVer() {
     console.log("Merhaba, burası klasik bir function");
 };
 
-// A is6 ile beraber bizim daha kolay basit kod yazmamızı sağlayan kullanım şekli arrow fonk; kullanmak zorunlu değil
+// A) ies6 ile beraber bizim daha kolay basit kod yazmamızı sağlayan kullanım şekli arrow fonk; kullanmak zorunlu değil
 // react öncesi neden bu konu bizim için önemli? =çübkü react'ın bazı komutları direkt olarak arrow fonksiyon şeklinde tanımlanmış
-// örn:bir şeyin içerisine function vemke gerekiyor ve bu diyorki arrow fonkla yazılmalı bu gibi durumlar için bu kullanım şeklini de bimen gerekiyor.
+// örn:bir şeyin içerisine function vermek gerekiyor ve bu diyorki arrow fonkla yazılmalı bu gibi durumlar için bu kullanım şeklini de bilmen gerekiyor.
 // Peki nasıl yazılır?=1) bi kere arrow fonk tanımlarsnız bu fonk bir değişken gibi düşüneceksin  ve bir fonk tanımlandıktan sonra içine yeni bir değer atamayacagımız 
 // için fonk genelde CONST keyword' ü ile tanımlanır sonrasında aynı üsste olduğu gibi (selamVer2)dedik ve bu fonk ismi gibi gözükmüyor tanımladığımız şey
-// şu ana kadar yazdığımız isimler teorik olarakçelişkli gibi gözükebilir sabit bir değişken deyine ama çok takılma:D değişken ama değeri değiştirilenilen bir değişken tanımlar gibiyim
-// eştiir 32 desem 32 adında bir number tipinde bir değişken tanımlamış olurum ama ben bunun için de bir fonk tutmak istiyorum;
+// şu ana kadar yazdığımız isimler teorik olarakçelişkli gibi gözükebilir sabit bir değişken deyince ama çok takılma:D değişken ama değeri değiştirilenilen bir değişken tanımlar gibiyim
+// eşttir 32 desem 32 adında bir number tipinde bir değişken tanımlamış olurum ama ben bunun için de bir fonk tutmak istiyorum;
 // bu fonk arrow fonk denmesinin sebebi: ok demek => diyip bundan sonrada skobumuzu açıyoruz; ve bu da bir fonk olmuş olur(sanki bir değişkeni çağırıyormuşuz gibi ama bu fonktur)
-// Nereden biliyor js bunun bir fonk olduğunu; ilk olarak eşittirin karşısındaki ()dan sonra da bu bir fonk ama => dan da bu bir arrow fonk dur diye anlamış oluyor ve diyor ki bu yüzden ()bu kısım boşmuş diyor normlade önce parantezin içinde isim yazdığımız için o yüzdendir diyor.
+// Nereden biliyor js bunun bir fonk olduğunu; ilk olarak eşittirin karşısındaki ()dan sonra da bu bir fonk ama => dan da bu bir arrow fonk dur diye anlamış oluyor ve diyor ki 
+// bu yüzden ()bu kısım boşmuş diyor normlade önce parantezin içinde isim yazdığımız için o yüzdendir diyor.
 
 
 // const selamVer2=()=>{   
@@ -24,7 +25,7 @@ function selamVer() {
 // B farklı örnekler; mesela bu selamVer'i aslında parametreyle(ad) kullansak; bir isim gönderebilirdik bu ismimle fonk :
 
 // const selamVer3 = (ad)=>{
-//    return koyunca ne farkı luyro ya da consolda neden aynı şekilde gözüküyorlar return eklesekte eklemesekte
+//    return koyunca ne farkı oluyor ya da consolda neden aynı şekilde gözüküyorlar return eklesekte eklemesekte
 //     console.log("Merhaba " + ad);
 // }
 // selamVer3("Ayşe Nur");
@@ -48,7 +49,7 @@ function selamVer() {
   
 // }
 // console.log(topla(4));
-// ama sayı 1 e 0 diyi sayi2 ye 0 demekten vaz geçersek consolda NaN yazar; burda ufak bir kural ihlali yapmış oluruz;bir fonk prametre listesi kısmınada(sayı br 2 yazdığımız yer) mutlaka son sıaralda olmlıdlır default verdiğimiz parametreler yapmak istersende sayi 2 yi başa koy o zamaan kardeş
+// ama sayı 1 e 0 diyi sayi2 ye 0 demekten vaz geçersek consolda NaN yazar; burda ufak bir kural ihlali yapmış oluruz;bir fonk prametre listesi kısmınada(sayı bir 2 yazdığımız yer) mutlaka son sıaralda olmlıdlır default verdiğimiz parametreler yapmak istersende sayi 2 yi başa koy o zamaan kardeş
 // null sayısal bir işlema tabi tutulabilen bir değer ama undefined tutulamaz neden? : undefined sayısal bir değer aynı zaman da ama maalesef aritmetik işleme tutulamıyor fakat null aslında içinde hiç bir şey olmayan string se tırnak tırnak sayıysa sayıların varsayılan değeri 0 olduğu için 0 ;dolayısıyla
 // bu kısıma ()verilirse hata vermez
 
@@ -72,7 +73,7 @@ console.log(topla2(5,20));
 // burada nasıl çaışıyor?=topla2'yi çağırdığımda 5'i sayi1'e 20'yi sayi2'ye atayacak ok(arrow)fonk kod bloğu oktan hemen sonra tek satırlık return'üm varmış ozaman 5+20 işlemini kendi biz yazmasakta kendi gizli bir return sözcüğünü barındığı için bu 25 'i return edip' consolda 25 yazacak
 
 
-// Modern js diyoruz ama günümüz o popüler kütüphanleri kullanırken(react,enguler...gibikütüphnelrş)aslında yapmış olduğumuz;bizim uygulamamız en son model js özellikleri ile yazıyoruz ama aslında bunu çalışır hale getirirken bunları ilk eski sürümlerine  döndürmüş oluyoruz.
-// is5 öncesine nedeni= eski tarayıcılarda benim programımı çalıştırabilmesi için sorun yaşamasın diye.Bunu yapmak için bir sürü converter dediğimiz kütüphaneler vsler var ama(decompiler dediğimiz)react bizim için zten bunları yapıyor bu yüzden bu kütüphaneler popü ama arkada bunun olduğunu bilmen gerekiyor
-// Biz bunları daha kolay kod yazbilmek için kullanıyoruz,geliştirme ortamımızın daha stabil daha temiz bir kod olması için mecur değiliz ama günümüzde ki teknolojiler bunu kullanıyorsa neden kullanıyorlar bize bu imkanı oluşturabilmek için (daha anlaşılırda olması için)Ama şunu da bilmelisin bugün böyle eski tip
+// Modern js diyoruz ama günümüz o popüler kütüphanleri kullanırken(react,enguler...gibikütüphneleri)aslında yapmış olduğumuz;bizim uygulamamız en son model js özellikleri ile yazıyoruz ama aslında bunu çalışır hale getirirken bunları ilk eski sürümlerine  döndürmüş oluyoruz.
+// ies5 öncesine nedeni= eski tarayıcılarda benim programımı çalıştırabilmesi için sorun yaşamasın diye.Bunu yapmak için bir sürü converter dediğimiz kütüphaneler vsler var ama(decompiler dediğimiz)react bizim için zaten bunları yapıyor bu yüzden bu kütüphaneler popü ama arkada bunun olduğunu bilmen gerekiyor
+// Biz bunları daha kolay kod yazbilmek için kullanıyoruz,geliştirme ortamımızın daha stabil daha temiz bir kod olması için mecbur değiliz ama günümüzde ki teknolojiler bunu kullanıyorsa neden kullanıyorlar bize bu imkanı oluşturabilmek için (daha anlaşılırda olması için)Ama şunu da bilmelisin bugün böyle eski tip
 // fonk artık kullanılmayacak diyebilir mesela hiç demedi ama diyebilir.
