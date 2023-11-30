@@ -4,10 +4,7 @@ import Product from '../Product/Product';
 function ProductList({ products }) {
   return (
     <>
-      {products.map(p => {
-        console.log(p);
-        <Product key={p.id} product={p} />
-      })}
+      {products.map(p=> <Product key={p.id} product={p} />)}
     </>
   )
 }
