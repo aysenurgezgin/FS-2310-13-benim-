@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 50px;
+    background-color:salmon;
+    border-style: inherit;
+    
+}
+h1{
+    color:floralwhite;
+    justify-content: center;
+    height: 120px;
+    
+    display: inline-block;
+}
+button{
+    background-color: cadetblue;
+    height: 50px;
+    
+}
+input{
+    background-color: aqua;
+    height: 50px;
+}
