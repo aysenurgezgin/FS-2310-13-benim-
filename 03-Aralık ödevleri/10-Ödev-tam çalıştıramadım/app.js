@@ -31,6 +31,8 @@ const kdvRate = 0.18;
 
 
 function calculateTheFullAmountIncludingKdv(order) {
+    let totalAmount;
+    let kdvRatedvRate;
     let totalPrice  = order.products.reduce((total, product) => total + product.productPrice, 0);
     let totalAmountIncludingKdv =  + (totalAmount * kdvRatedvRate);
     return totalAmountIncludingKdv;
