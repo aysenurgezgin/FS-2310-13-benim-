@@ -36,6 +36,7 @@ h1 {
 }
 
 .TodoInput {
+  outline: none;
   background: none;
   color: white;
   border: 1px solid gray;
@@ -56,7 +57,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: tomato;
+  background-color: blueviolet;
   color: white;
   padding: .75rem 1rem;
   margin-bottom: 1rem;
@@ -75,4 +76,22 @@ h1 {
 
 .TodoButtons {
   width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TodoContainer {
+  margin-top: 1rem;
+}
+
+.TodoButtons svg {
+  font-size: 1.25rem;
+}
+
+.fa-pen-to-square {
+  color: orange;
+}
+
+.fa-trash {
+  color: red;
 }

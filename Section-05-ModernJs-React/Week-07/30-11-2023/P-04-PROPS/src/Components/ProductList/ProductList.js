@@ -4,7 +4,14 @@ import Product from '../Product/Product';
 function ProductList({ products }) {
   return (
     <>
-      {products.map(p=> <Product key={p.id} product={p} />)}
+      {products.map(p => <Product key={p.id} product={p} />)}
+{/* 
+      Yukarıdaki map satırında aslında bunu yapıyoruz:
+      <Product product={products[0]} />
+      <Product product={products[1]} />
+      <Product product={products[2]} />
+      <Product product={products[3]} /> */}
+
     </>
   )
 }

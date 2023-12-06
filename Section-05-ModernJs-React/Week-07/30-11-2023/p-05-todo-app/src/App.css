@@ -1,11 +1,11 @@
-*{
+* {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: cadetblue;
   display: flex;
   justify-content: center;
@@ -17,14 +17,14 @@ body{
 }
 
 h1 {
-  color: white;
+  color: #fff;
   margin-bottom: .5rem;
-  font-size: 1.75rem;
+  font-size:1.75rem;
 }
-.TodoWrapper {
+.TodoWrapper{
   background-color: black;
   margin-top: 4rem;
-  padding: 2rem;
+  padding:2rem;
   border-radius: .25rem;
 }
 

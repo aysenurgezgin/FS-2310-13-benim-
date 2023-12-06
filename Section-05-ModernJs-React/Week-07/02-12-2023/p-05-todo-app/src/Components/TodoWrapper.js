@@ -6,51 +6,42 @@ import TodoContainer from './TodoContainer';
 
 const TodoWrapper = () => {
     let [todos, setTodos] = useState([]);
-
     const addTodo = todo => {
         setTodos([...todos, {
-            id:uuidv4(),
+            id: uuidv4(),
             desc: todo,
             completed: false
         }]);
     };
-//fonk parametre noktası=()
-    const toggleComplete = (id)=>{
-       setTodos(
-        todos.map((todo)=>todo.id==id ?{...todo, completed: !todo.completed}: todo)
-       );
+
+    const toggleComplete = (id) => {
+        setTodos(
+            todos.map((todo) => todo.id == id ? { ...todo, completed: !todo.completed } : todo)
+        );
     }
-    //turnery if kulandık
-// const deletedTaskArray
-    
+
+    // const deleteTaskAlternative = (id) => {
+    //     const newTodos=[];
+    //     for(let i = 0; i<todos.length ; i++){
+    //         if (todos[i].id!=id) {
+    //             newTodos.push(todos[i]);
+    //         }
+    //     }
+    //     console.log("Silinmemiş hali", todos);
+    //     console.log("Silinmiş hali", newTodos);
+    // }
+
+
+    const deleteTask = (id) => setTodos(todos.filter((todo) => todo.id != id));
     return (
         <>
             <div className='TodoWrapper'>
-                <h1>FS-2310 Todo App</h1>
-                <TodoForm addTodo={addTodo} todos={todos}/>
-               {
-               todos.map((todo)=>{
-                    return<Todo
-                        key={todo.id}
-                        task={todo}
-                        toggelComplete={toggleComplete}
-                    />
-                })
-               }
-            
+                <h1>FS-2310-13 Todo App</h1>
+                <TodoForm addTodo={addTodo} todos={todos} />
+                <TodoContainer todos={todos} toggleComplete={toggleComplete} deleteTask={deleteTask} />
             </div>
         </>
     )
 }
 
 export default TodoWrapper;
-
-//uuid den (benzersiz id olusşturabilmek için )
-//sunucu
-//durdurmak içiç terminali; görev yöneticisince node.js run tine ı durdur
-//dev toolusu nasıl kuarbilirş m
-//dom mantığın air daha bak!
-//dönrüreleck her bir elemana key //durumunu değiştirme =toggel la yapılır
-
-
-// gereken ilk olrak neyin ne olduğunu anlmak,fonk mantığını otturmak.

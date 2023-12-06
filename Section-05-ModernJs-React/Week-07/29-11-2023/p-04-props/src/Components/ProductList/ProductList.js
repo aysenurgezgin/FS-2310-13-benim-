@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 function ProductList({ products }) {
   return (
     <>
-      {products.map(p => {
+      {products.forEach(p => {
         console.log(p);
         <Product key={p.id} product={p} />
       })}

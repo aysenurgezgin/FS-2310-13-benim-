@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import ProductList from './Components/ProductList/ProductList';
-import TickTock from './Components/TickTock/TickTock';
+// import TickTock from './Components/TickTock/TickTock';
+
 
 function App() {
   // const firstName = "Engin Niyazi";
@@ -14,10 +15,9 @@ function App() {
     { id: 4, name: "Iphone 17", desc: "Hoş bir telefon", price: 73000 }
   ];
 
-  //state kulanım şeklini burada kullanıcaz (use stte )iki şey adı ne olsun takip edilecek olanın ikiciside bu değeri değiştirmek için olan ın ismi ne olsun(fonk)=bu da bize sayfayı yenileme ihtiyacını ortadan kaldırmış oluyor(react'ın bize sağladığı temel şey kütüphanlerin amacı)
-  let[number,setNumber]=useState(10);
-  function numberAdd(){
-  setNumber(++number);
+  let [number, setNumber] = useState(10);
+  function numberAdd() {
+    setNumber(++number);
   }
   return (
 
