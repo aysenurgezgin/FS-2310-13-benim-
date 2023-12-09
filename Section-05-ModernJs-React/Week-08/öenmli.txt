@@ -1,1 +1,2 @@
 todo app uygulamsını repoya kendin yazıp githup da olsun
+neyi çağırdığında ne olsun onlara bak
