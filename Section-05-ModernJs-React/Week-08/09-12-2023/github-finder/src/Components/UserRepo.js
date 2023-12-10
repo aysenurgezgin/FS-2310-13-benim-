@@ -2,7 +2,7 @@ import React from 'react'
 import { ListGroupItem, NavLink } from 'react-bootstrap'
 
 const UserRepo = ({ userRepoName, userRepoUrl }) => {
-    console.log(userRepoUrl)
+   
     return (
         <>
             <ListGroupItem className='w-auto' action={true} href={userRepoUrl} target="_blank">
@@ -12,4 +12,4 @@ const UserRepo = ({ userRepoName, userRepoUrl }) => {
     )
 }
 
-export default UserRepo
+export default UserRepo;

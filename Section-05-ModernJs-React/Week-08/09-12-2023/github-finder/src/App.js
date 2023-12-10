@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import Axios from 'axios';
 
 function App() {
-  const token = "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";
+  const token = "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";
   const config = {
     headers: { Authorization: `Bearer ${token}` }
   }
