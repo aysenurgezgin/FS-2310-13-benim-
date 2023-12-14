@@ -1,4 +1,4 @@
-﻿namespace P_05_Methods_01
+﻿namespace P_05_StingMethods
 {
     internal class Program
     {
@@ -72,6 +72,8 @@
             title = title.Replace(",", "");
             title = title.Replace("ı", "i");
             Console.WriteLine(title);
+
+            
 
             //f5 
 
