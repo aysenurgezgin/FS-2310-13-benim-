@@ -20,16 +20,37 @@
                     Console.WriteLine(name);
                 }
     */
+            /*
+                        int[] numbers = { 1, 2, 3, 4, 5 };
+                        int[] newNumbers = new int[5];
+                        int index = 0;
 
-            int[] numbers = { 1, 2, 3, 4, 5 };
-            int[] newNumbers = new int[5];
-            int index = 0;
+                        foreach (var number in numbers)
+                        {
+                            newNumbers[index] = number*2;
+                            index++;
+                        }*/
 
-            foreach (var number in numbers)
+
+            //js yaptıklarını C# ta yapmaya çalış
+            //Klavyeden girişlcek bir sayıya kadar olan sayıların içinden kaç tanesinin çift kaçtanesinin üçün katı sayı olduğunı buldurup konsola yazdıraalım
+
+
+
+            Console.Write("Lütfen bir sayı giriniz");
+            int sayi = int.Parse(Console.ReadLine());
+            for (int i = 0; i <= sayi; i++) ;
+            int ciftSayiAdedi = 0;
+            int ucunKatiSayiAdedi = 0;
+            for (int i = 0; i <= sayi; i++) ;
             {
-                newNumbers[index] = number*2;
-                index++;
+                if (i % 2 == 0) ciftSayiAdedi++;
+                if (i % 3 == 0) ucunKatiSayiAdedi++;
+
             }
+
+
+
             #endregion
 
             Console.ReadLine();
