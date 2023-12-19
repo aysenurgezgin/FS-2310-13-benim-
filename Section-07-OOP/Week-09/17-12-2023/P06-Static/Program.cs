@@ -1,4 +1,5 @@
-﻿namespace P06_Static
+﻿using P06_Static.Helper;
+namespace P06_Static
 {
     public static class Deneme
     {
@@ -9,8 +10,14 @@
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            Console.WriteLine("Hello, World!");
-            Deneme.Sayi = 45;
+            string name = "Alex?de?Souza";
+            /*  HelperMethods helper = new HelperMethods();
+              Console.WriteLine(helper.EditText(name);*/
+            Console.WriteLine(HelperMethods.EditText(name));
+
+            Console.ReadLine();
         }
     }
 }
+
+//Çok eksikk

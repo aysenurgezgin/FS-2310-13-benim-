@@ -1,0 +1,3 @@
+interface yapısı ve
+static teki yapıyı tam anlamıyla anlaman gerek
+
