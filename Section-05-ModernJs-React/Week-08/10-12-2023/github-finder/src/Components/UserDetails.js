@@ -19,7 +19,7 @@ const UserDetails = ({login}) => {
                         <Col xs={12}>
                             <Card.Header className='d-flex justify-content-between align-items-center display-6 text-danger'>
                                 {context.user.name} ({context.user.login})
-                                <CloseButton  />
+                                <CloseButton onClick={()=> {context.setUser({}) }}  className='fs-4'/>
                             </Card.Header>
                         </Col>
                     </Row>
