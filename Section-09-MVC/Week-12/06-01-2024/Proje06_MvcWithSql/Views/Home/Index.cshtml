@@ -8,17 +8,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            @await Html.PartialAsync("_CategoriesPartial",categoryList)
-            </div>
-
+            @await Html.PartialAsync("_CategoriesPartial", categoryList)
         </div>
         <div class="col-md-10">
             <div class="row">
-        @foreach (ProductViewModel p in productList)
-        {
-           @await Html.PartialAsync("_ProductPartial",p)
-        }
+                @foreach (ProductViewModel p in productList)
+                {
+                    @await Html.PartialAsync("_ProductPartial", p)
+                }
             </div>
         </div>
+
     </div>
 </div>

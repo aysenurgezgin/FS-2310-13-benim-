@@ -44,10 +44,10 @@ public class HomeController : Controller
         Db.CloseCn();
 
         Db.OpenCn();
-         queryString = @"select
-            c.CategoryId as Id,
-            c.CategoryName as Name
-          from Categories c ";
+        queryString = @"select 
+	                        c.CategoryID as Id,
+	                        c.CategoryName as Name
+                        from Categories c";
 
         SqlCommand cmd = new SqlCommand(queryString, Db.connection);
         SqlDataReader reader = cmd.ExecuteReader();
@@ -58,7 +58,7 @@ public class HomeController : Controller
             category = new CategoryViewModel
             {
                 Id = Convert.ToInt32(reader["Id"]),
-                Name = reader["Name"].ToString(),
+                Name = reader["Name"].ToString()
             };
             categories.Add(category);
         }
@@ -66,8 +66,8 @@ public class HomeController : Controller
 
         CategoriesProducts model = new CategoriesProducts
         {
-           Categories = categories,
-           Products = products
+            Categories = categories,
+            Products = products
         };
 
         return View(model);

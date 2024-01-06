@@ -14,15 +14,13 @@ namespace Proje06_MvcWithSql.Controllers
 {
     public class CategoryController : Controller
     {
-
-
         public IActionResult Index()
         {
             Db.OpenCn();
             string queryString = @"select 
-	                                c.CategoryID as Id,
-                                    c.CategoryName as Name,
-                                    c.Description as Description
+	                                    c.CategoryID as Id,
+	                                    c.CategoryName as Name,
+	                                    c.Description as Description
                                     from Categories c";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Db.connection);
             DataTable dataTable = new DataTable();
@@ -31,11 +29,18 @@ namespace Proje06_MvcWithSql.Controllers
             CategoryViewModel categoryViewModel = null;
             foreach (DataRow row in dataTable.Rows)
             {
-               categories.Add(new CategoryViewModel
-                    {
+                //categoryViewModel = new CategoryViewModel
+                //{
+                //    Id = Convert.ToInt32(row["Id"]),
+                //    Name = row["Name"].ToString(),
+                //    Description = row["Description"].ToString()
+                //};
+                //categories.Add(categoryViewModel);
+                categories.Add(new CategoryViewModel
+                {
                     Id = Convert.ToInt32(row["Id"]),
                     Name = Convert.ToString(row["Name"]),
-                    Description = Convert.ToString(row["Description"]),
+                    Description = Convert.ToString(row["Description"])
                 });
             }
             return View(categories);

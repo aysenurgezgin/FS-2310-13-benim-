@@ -43,12 +43,13 @@ namespace Proje06_MvcWithSql.Controllers
                 };
                 products.Add(productViewModel);
             }
+            Db.CloseCn();
 
             Db.OpenCn();
-            queryString = @"select
-            c.CategoryId as Id,
-            c.CategoryName as Name
-          from Categories c ";
+            queryString = @"select 
+	                        c.CategoryID as Id,
+	                        c.CategoryName as Name
+                        from Categories c";
 
             SqlCommand cmd = new SqlCommand(queryString, Db.connection);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -59,37 +60,19 @@ namespace Proje06_MvcWithSql.Controllers
                 category = new CategoryViewModel
                 {
                     Id = Convert.ToInt32(reader["Id"]),
-                    Name = reader["Name"].ToString(),
+                    Name = reader["Name"].ToString()
                 };
                 categories.Add(category);
             }
             Db.CloseCn();
-            queryString = @"select
-            c.CategoryId as Id,
-            c.CategoryName as Name
-          from Categories c ";
 
-            SqlCommand cmd = new SqlCommand(queryString, Db.connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<CategoryViewModel> categories = new List<CategoryViewModel>();
-            CategoryViewModel category = null;
-            while (reader.Read())
+            CategoriesProducts model = new CategoriesProducts
             {
-                category = new CategoryViewModel
-                {
-                    Id = Convert.ToInt32(reader["Id"]),
-                    Name = reader["Name"].ToString(),
-                };
-                categories.Add(category);
-            }
-            Db.CloseCn();
+                Categories = categories,
+                Products = products
+            };
 
-
-
-
-
-
-            return View(list);
+            return View(model);
         }
     }
 }

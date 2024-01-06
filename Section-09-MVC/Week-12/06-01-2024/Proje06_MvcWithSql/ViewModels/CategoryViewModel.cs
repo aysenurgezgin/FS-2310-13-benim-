@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Proje06_MvcWithSql.ViewModels
+﻿namespace Proje06_MvcWithSql.ViewModels
 {
     public class CategoryViewModel 
     {
