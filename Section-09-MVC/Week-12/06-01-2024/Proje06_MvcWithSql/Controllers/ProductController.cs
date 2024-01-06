@@ -29,7 +29,7 @@ namespace Proje06_MvcWithSql.Controllers
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Db.connection);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
-            List<ProductViewModel> list = new List<ProductViewModel>();
+            List<ProductViewModel> products = new List<ProductViewModel>();
             ProductViewModel productViewModel = null;
             foreach (DataRow productRow in dataTable.Rows)
             {
@@ -41,8 +41,54 @@ namespace Proje06_MvcWithSql.Controllers
                     CategoryId = Convert.ToInt32(productRow[3]),
                     Stock = Convert.ToInt32(productRow[4])
                 };
-                list.Add(productViewModel);
+                products.Add(productViewModel);
             }
+
+            Db.OpenCn();
+            queryString = @"select
+            c.CategoryId as Id,
+            c.CategoryName as Name
+          from Categories c ";
+
+            SqlCommand cmd = new SqlCommand(queryString, Db.connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<CategoryViewModel> categories = new List<CategoryViewModel>();
+            CategoryViewModel category = null;
+            while (reader.Read())
+            {
+                category = new CategoryViewModel
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    Name = reader["Name"].ToString(),
+                };
+                categories.Add(category);
+            }
+            Db.CloseCn();
+            queryString = @"select
+            c.CategoryId as Id,
+            c.CategoryName as Name
+          from Categories c ";
+
+            SqlCommand cmd = new SqlCommand(queryString, Db.connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<CategoryViewModel> categories = new List<CategoryViewModel>();
+            CategoryViewModel category = null;
+            while (reader.Read())
+            {
+                category = new CategoryViewModel
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    Name = reader["Name"].ToString(),
+                };
+                categories.Add(category);
+            }
+            Db.CloseCn();
+
+
+
+
+
+
             return View(list);
         }
     }

@@ -1,5 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<CategoryViewModel>
+<div class="list-group">
+    @foreach (var c in Model)
+    {
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            @c.Name
+        </a>
+    }
