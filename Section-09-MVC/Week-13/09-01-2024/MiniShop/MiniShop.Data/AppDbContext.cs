@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MiniShop.Data.Config;
 using MiniShop.Entity;
 
 namespace MiniShop.Data
@@ -20,9 +22,15 @@ namespace MiniShop.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CategoryProduct>().HasKey(x=>new {x.CategoryId, x.ProductId});
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
+
+
+
+
+
             base.OnModelCreating(modelBuilder);
         }
 
     }
 }
+//configire yapılandırma adına geliur

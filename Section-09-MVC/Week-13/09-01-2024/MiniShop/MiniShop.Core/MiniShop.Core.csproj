@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MiniShop.Core\MiniShop.Core.csproj" />
-    <ProjectReference Include="..\MiniShop.Data\MiniShop.Data.csproj" />
-  </ItemGroup>
-
 </Project>
