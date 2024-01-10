@@ -24,20 +24,37 @@ namespace MiniShop.Data.Config
             builder.Property(p => p.Price).IsRequired();
             builder.Property(p => p.ImageUrl).IsRequired();
             builder.ToTable("Products");
-            builder.HasData(
-                new Product
-                {
-                    Id = 1,
-                    Name = "Iphone14",
-                    Price = 59000,
-                    Properties = "Harika bir telefon",
-                    Url="iphone-14",
-                    ImageUrl="1.png",
-                    IsHome=true
-                },
-                
-                ) ;
-
+            builder
+                 .HasData(
+                    new Category
+                    {
+                        Id = 1,
+                        Name = "Televizyon",
+                        Description = "TV kategorisi",
+                        Url = "televizyon"
+                    },
+                    new Category
+                    {
+                        Id = 2,
+                        Name = "Bilgisayar",
+                        Description = "Bilgisayar kategorisi",
+                        Url = "bilgisayar"
+                    },
+                    new Category
+                    {
+                        Id = 3,
+                        Name = "Elektronik Eşya",
+                        Description = "Elektronik Eşya kategorisi",
+                        Url = "elektronik-esya"
+                    },
+                    new Category
+                    {
+                        Id = 4,
+                        Name = "Beyaz Eşya",
+                        Description = "Beyaz Eşya kategorisi",
+                        Url = "beyaz-esya"
+                    }
+                );
 
         }
     }

@@ -15,26 +15,24 @@ namespace MiniShop.Data.Config
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(c => c.Id);//Primary Key
-            builder.Property(c => c.Id).ValueGeneratedOnAdd();//IdentitySpeficititation
-            builder.Property(c => c.Name).IsRequired();
-            builder.Property(c => c.Name).HasMaxLength(50);
-            builder.Property(c => c.Name);
-
+            builder.Property(c => c.Id).ValueGeneratedOnAdd();//IdentitySpeficitation
+            //modelBuilder.Entity<Category>().Property(c => c.Name).IsRequired();
+            //modelBuilder.Entity<Category>().Property(c => c.Name).HasMaxLength(50);
             builder
-              
+                .Property(c => c.Name)
+                .IsRequired()
+                .HasMaxLength(50);
+            builder
                 .Property(c => c.Description)
                 .IsRequired()
                 .HasMaxLength(500);
-
             builder
                 .Property(c => c.Url)
                 .IsRequired()
                 .HasMaxLength(500);
-
             builder
                 .ToTable("Categories");
-
-           builder
+            builder
                 .HasData(
                     new Category
                     {
@@ -43,28 +41,27 @@ namespace MiniShop.Data.Config
                         Description = "TV kategorisi",
                         Url = "televizyon"
                     },
-                     new Category
-                     {
-                         Id = 2,
-                         Name = "Bilgisayar",
-                         Description = "Bilgisayar kategorisi",
-                         Url = "bilgisayar"
-                     },
-                      new Category
-                      {
-                          Id = 3,
-                          Name = " Elektronik Eşya",
-                          Description = "Elektronik Eşya kategorisi",
-                          Url = "elektronik-esya"
-                      },
-                      new Category
-                      {
-                          Id = 4,
-                          Name = "Beyaz Eşya",
-                          Description = "Beyaz Esya kategorisi",
-                          Url = "beyaz-esya"
-                      }
-
+                    new Category
+                    {
+                        Id = 2,
+                        Name = "Bilgisayar",
+                        Description = "Bilgisayar kategorisi",
+                        Url = "bilgisayar"
+                    },
+                    new Category
+                    {
+                        Id = 3,
+                        Name = "Elektronik Eşya",
+                        Description = "Elektronik Eşya kategorisi",
+                        Url = "elektronik-esya"
+                    },
+                    new Category
+                    {
+                        Id = 4,
+                        Name = "Beyaz Eşya",
+                        Description = "Beyaz Eşya kategorisi",
+                        Url = "beyaz-esya"
+                    }
                 );
         }
     }
