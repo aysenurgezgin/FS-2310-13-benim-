@@ -58,5 +58,6 @@ namespace MiniShop.Mvc.Areas.Admin.Controllers
             _productManager.HardDelete(id);
             return RedirectToAction("Index");
         }
+
     }
 }
