@@ -17,7 +17,7 @@ namespace MiniShop.Mvc.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var products = _productManager.GetAll();
+            var products = _productManager.GetAll(null,null,false);
             return View(products);
         }
 
@@ -59,5 +59,10 @@ namespace MiniShop.Mvc.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult SoftDelete(int id)
+        {
+            _productManager.SoftDelete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

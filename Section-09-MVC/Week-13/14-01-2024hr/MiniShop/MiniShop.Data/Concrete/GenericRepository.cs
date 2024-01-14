@@ -43,7 +43,9 @@ namespace MiniShop.Data.Concrete
 
         public void SoftDelete(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Update(entity);
+            _dbContext.SaveChanges();
+            //Update(entity); (Aynı mantık alttaki kodla çünkü silince update mantığı var)
         }
 
         public void Update(TEntity entity)

@@ -42,7 +42,15 @@ namespace MiniShop.Business.Concrete
             List<Product> products;
             if(isHome==null)
             {
-                products = _productRepository.GetAll();
+                if(isDelete==null)
+                {
+                    products = _productRepository.GetAll();
+                }
+               else
+                {
+                    products = _productRepository.GetDeletedProducts(isDelete);
+                }
+
             }else 
             {
                  products = _productRepository.GetHomePageProducts(isHome);
@@ -85,7 +93,8 @@ namespace MiniShop.Business.Concrete
                 Price = product.Price,
                 Url = product.Url,
                 ImageUrl = product.ImageUrl,
-                Properties = product.Properties
+                Properties = product.Properties,
+                IsHome=product.IsHome
             };
             return productViewModel;
         }
@@ -98,7 +107,9 @@ namespace MiniShop.Business.Concrete
 
         public void SoftDelete(int id)
         {
-            throw new NotImplementedException();
+            Product deletedProduct = _productRepository.GetById(id);
+            deletedProduct.IsDelete = !deletedProduct.IsDelete;
+            _productRepository.SoftDelete(deletedProduct);
         }
 
         public void Update(ProductViewModel model)

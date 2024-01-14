@@ -21,6 +21,12 @@
                     asp-action="HardDelete"
                     asp-route-id="@Model.Id"
                     class="btn btn-danger">Kalıcı olarak Sil</a>
+
+                <a asp-area="Admin"
+                   asp-controller="Product"
+                   asp-action="SoftDelete"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-warning">Çöpe gönder</a>
             </div>
         </div>
     </div>
