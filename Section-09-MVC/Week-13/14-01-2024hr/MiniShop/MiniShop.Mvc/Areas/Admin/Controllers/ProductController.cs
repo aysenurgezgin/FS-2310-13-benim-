@@ -9,6 +9,7 @@ namespace MiniShop.Mvc.Areas.Admin.Controllers
     {
         private readonly IProductService _productManager;
 
+        //Dependency Injection
         public ProductController(IProductService productManager)
         {
             _productManager = productManager;
@@ -19,10 +20,10 @@ namespace MiniShop.Mvc.Areas.Admin.Controllers
             var products = _productManager.GetAll();
             return View(products);
         }
+
         [HttpGet]
         public IActionResult Create()
         {
-
             return View();
         }
 
@@ -32,7 +33,30 @@ namespace MiniShop.Mvc.Areas.Admin.Controllers
             _productManager.Create(productViewModel);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Edit(int id) 
+        {
+            ProductViewModel editedProduct = _productManager.GetById(id);
+            return View(editedProduct);
+        }
+        [HttpPost]
+        public IActionResult Edit(ProductViewModel editedProduct)
+        {
 
+            _productManager.Update(editedProduct);
+            return RedirectToAction("Index");
+        }
 
+        [HttpGet]
+        public IActionResult Delete(int id) 
+        {
+            ProductViewModel deletedProduct = _productManager.GetById(id);
+            return View(deletedProduct);
+        }
+        public IActionResult HardDelete(int id) 
+        {
+            _productManager.HardDelete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

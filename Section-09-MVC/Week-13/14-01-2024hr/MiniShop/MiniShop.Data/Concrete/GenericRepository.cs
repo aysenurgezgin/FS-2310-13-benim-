@@ -18,26 +18,27 @@ namespace MiniShop.Data.Concrete
         }
         public void Create(TEntity entity)
         {
-
             _dbContext.Set<TEntity>().Add(entity);
             _dbContext.SaveChanges();
         }
 
         public List<TEntity> GetAll()
         {
-            List<TEntity> entities =_dbContext.Set<TEntity>().ToList();
+            List<TEntity> entities = _dbContext.Set<TEntity>().ToList();
             return entities;
         }
 
         public TEntity GetById(int id)
         {
-            TEntity entity= _dbContext.Set<TEntity>().Find(id);
+            TEntity entity = _dbContext.Set<TEntity>().Find(id);
             return entity;
         }
 
         public void HardDelete(TEntity entity)
         {
-            throw new NotImplementedException();
+           _dbContext.Set<TEntity>().Remove(entity);
+           _dbContext.SaveChanges();
+
         }
 
         public void SoftDelete(TEntity entity)
@@ -47,7 +48,8 @@ namespace MiniShop.Data.Concrete
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }
