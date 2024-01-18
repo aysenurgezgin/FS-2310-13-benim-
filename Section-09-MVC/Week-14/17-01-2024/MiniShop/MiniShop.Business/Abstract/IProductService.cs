@@ -11,8 +11,6 @@ namespace MiniShop.Business.Abstract
     public interface IProductService
     {
         #region Generic
-
-
         Task<ProductDTO> GetByIdAsync(int id);
         Task<List<ProductDTO>> GetAllAsync();
         Task<ProductDTO> CreateAsync(ProductDTO productDTO);
