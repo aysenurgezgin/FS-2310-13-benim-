@@ -101,11 +101,10 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<NoContent>> HardDeleteAsync(int id)
         {
-           var product= await _repository.GetByIdAsync(id);
+            var product = await _repository.GetByIdAsync(id);
             if (product == null)
             {
                 return Response<NoContent>.Fail("İlgili ürün bulunamadı.", 404);
-
             }
             await _repository.HardDeleteAsync(product);
             return Response<NoContent>.Success(200);
@@ -113,11 +112,10 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<NoContent>> SoftDeleteAsync(int id)
         {
-           var product= await _repository.GetByIdAsync(id);
+            var product = await _repository.GetByIdAsync(id);
             if (product == null)
             {
                 return Response<NoContent>.Fail("İlgili ürün bulunamadı.", 404);
-
             }
             if(product.IsDeleted)
             {
@@ -125,10 +123,9 @@ namespace MiniShop.Business.Concrete
             }
             product.IsDeleted = !product.IsDeleted;
             product.IsActive = false;
-            product.ModifiedDate = DateTime.UtcNow;
+            product.ModifiedDate = DateTime.Now;
             await _repository.UpdateAsync(product);
             return Response<NoContent>.Success(200);
-
         }
 
         public async Task<Response<ProductDTO>> UpdateAsync(EditProductDTO editProductDTO)
