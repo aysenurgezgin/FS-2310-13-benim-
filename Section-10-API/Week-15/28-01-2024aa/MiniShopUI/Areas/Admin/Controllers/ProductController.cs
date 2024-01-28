@@ -99,7 +99,11 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
 
             return View(model);
         }
-        [HttpGet]
+        [NonAction] 
+        public async Task<IActionResult>Edit(int id)
+        {
+
+        }
         public async Task<IActionResult> Edit(int id)
         {
             Response<ProductViewModel> response = new Response<ProductViewModel>();
@@ -151,6 +155,21 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+
+        public async Task<IActionResult> Delete(int i)
+        {
+            ProductViewModel productViewModel = await GetProductAsync(id);
+            DeleteProductViewModel model = new DeleteProductViewModel
+            {
+              
+            }
+        }
+
+
     }
+    
+
 }
 //ödev mapper yapmalısın mvc projesinden bakabilirsin.!

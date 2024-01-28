@@ -32,6 +32,12 @@ namespace MiniShop.MVC.Areas.Admin.Models
         [JsonPropertyName("IsHome")]
         public bool IsHome { get; set; }
 
+        [JsonPropertyName("IsDeleted")]
+        public bool IsDeleted { get; set; 
+
+        [JsonPropertyName("ModifiedDate")]
+        public DateTime ModifiedDate { get; set; }
+
         [JsonPropertyName("CategoryList")]
         public List<CategoryViewModel>  Categories { get; set; }
 
