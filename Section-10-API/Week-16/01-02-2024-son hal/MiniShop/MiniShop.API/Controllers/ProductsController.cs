@@ -74,10 +74,20 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpPost("Create")]
+     /*   [HttpPost("Create")]
         public async Task<IActionResult> Create([FromForm] AddProductDTO addProductDTO)
         {
             addProductDTO.ImageUrl = await _imageHelper.UploadImage(addProductDTO.Image, "products");
+            var response = await _productManager.CreateAsync(addProductDTO);
+            var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);*/
+        }
+
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([ AddProductDTO addProductDTO)
+        {
+           
             var response = await _productManager.CreateAsync(addProductDTO);
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
