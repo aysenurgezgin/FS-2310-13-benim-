@@ -22,7 +22,7 @@ namespace MiniShop.Shared.Helpers.Concrete
 
         public bool ImageIsValid(string extension)
         {
-            string[] correctExtensions = { ".png",".jpg","jpeg" };
+            string[] correctExtensions = { ".png",".jpg",".jpeg" };
             if(correctExtensions.Contains(extension))
             {
                 return true;

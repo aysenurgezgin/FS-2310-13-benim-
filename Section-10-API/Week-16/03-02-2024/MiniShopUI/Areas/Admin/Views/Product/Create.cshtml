@@ -44,7 +44,6 @@
                                             <span asp-validation-for="Price" class="text-danger"></span>
                                         </div>
                                     </div>
-
                                     <div class="col-sm-4">
                                         <label>Seçenekler</label>
                                         <div class="form-group d-flex">
@@ -58,24 +57,28 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div class="col-sm-9">
                                         <label asp-for="Properties"></label>
                                         <textarea asp-for="Properties"></textarea>
                                         <span asp-validation-for="Properties" class="text-danger"></span>
                                     </div>
+
+
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                         <label>Ürün Resmi</label>
-                                         <input id="image" name="image" type="file" class="d-none" accept="image/png, image/jpg, image/jpeg" />
-                                         <div class="mt-2">
-                                             <label class="btn btn-success" for="image">Ürün Resmi Yükle</label>
-
-                                         </div>
-                                         <span class="text-danger">@ViewBag.ImageErrorMessage</span>
-                                         <img id="image-viewer" style="height:200px;" />
+                                            <label>Ürün Resmi</label>
+                                            <input id="image" name="image" type="file" class="d-none" accept="image/png, image/jpg, image/jpeg" />
+                                            <div class="mt-2">
+                                                <label class="btn btn-success" for="image">Ürün Resmi Yükle</label>
+                                            </div>
+                                            <span class="text-danger">@ViewBag.ImageErrorMessage</span>
+                                            <img id="image-viewer" class="img-fluid" style="height:200px;" />
                                         </div>
                                     </div>
-                                   
+                                    
+
                                 </div>
                             </div>
                         </div>
@@ -119,11 +122,14 @@
 @section Scripts{
     @await Html.PartialAsync("_SummerNotePartial")
     <script>
-       // document.getElementById("image").addEventListener("change", function () {
-       // }); javaScript kullanmış olsaydık.
+        // document.getElementById("image").addEventListener("change", function () {
+
+        // });
+
         $("#image").on("change", function (e) {
             const selectedFiles = e.target.files;
+            
             $("#image-viewer").attr("src", window.URL.createObjectURL(selectedFiles[0]));
-        })
+        });
     </script>
 }

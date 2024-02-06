@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniShop.MVC.Areas.Admin.Models;
-using MiniShop.MVC.Extentions;
+using MiniShop.MVC.Extensions;
 using MiniShop.MVC.Helpers;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MiniShop.MVC.Areas.Admin.Controllers
 {
@@ -75,7 +77,7 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(AddProductViewModel model,IFormFile image)
+        public async Task<IActionResult> Create(AddProductViewModel model, IFormFile image)
         {
             model.Url = Jobs.GetUrl(model.Name);
 
@@ -83,25 +85,23 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             {
                 using (var httpClient = new HttpClient())
                 {
-                    //Resim yükleme işlemi;
-                    using (var stream =  image.OpenReadStream())
+                    //Resim Yükleme İşlemi
+                    using (var stream = image.OpenReadStream())
                     {
                         var imageContent = new MultipartFormDataContent();
                         byte[] bytes = stream.ToByteArray();
-                        imageContent.Add(new ByteArrayContent(bytes),);
-                        HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:7700/Products/Image", imageContent);
-                        string httpResponseMessageImageUrl = await httpResponseMessage.Content.ReadAsStringAsync();
-                        if(httpResponseMessageImageUrl !=null && httpResponseMessageImageUrl !="")
+                        imageContent.Add(new ByteArrayContent(bytes),"image",image.FileName);
+                        HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:7700/Products/ImageUpload", imageContent);
+                        string httpResponseMessageImageUrl =await httpResponseMessage.Content.ReadAsStringAsync();
+                        if(httpResponseMessageImageUrl!=null && httpResponseMessageImageUrl != "")
                         {
                             model.ImageUrl = httpResponseMessageImageUrl;
-                            //Product kayıt işlemi;
+                            //Product Kayıt İşlemi
                             var serializeModel = JsonSerializer.Serialize(model);
                             StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
                             var result = await httpClient.PostAsync("http://localhost:7700/Products/Create", stringContent);
-
                             if (result.IsSuccessStatusCode)
                             {
-
                                 return RedirectToAction("Index");
                             }
                         }
@@ -109,8 +109,9 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
                 }
             }
             ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
-            ViewBag.ImageErrorMessage = model.ImageUrl == null || model.ImageUrl == "" ? "Resim Hatalı!" : null;
+            ViewBag.ImageErrorMessage = model.ImageUrl == null || model.ImageUrl == "" ? "Resim hatalı!" : null;
             model.Categories= await GetCategoriesAsync();
+            
             return View(model);
         }
 
@@ -161,19 +162,43 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(EditProductViewModel model)
+        public async Task<IActionResult> Edit(EditProductViewModel model, IFormFile image, string oldImageUrl)
         {
+
             model.Url = Jobs.GetUrl(model.Name);
+
             if (ModelState.IsValid && model.CategoryIds.Count > 0)
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var serializeModel = JsonSerializer.Serialize(model);
-                    StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
-                    var result = await httpClient.PutAsync("http://localhost:7700/Products/Update", stringContent);
-                    if (result.IsSuccessStatusCode)
+
+                    //Resim Yükleme İşlemi
+                    using (var stream = image != null ?  image.OpenReadStream():null)
                     {
-                        return RedirectToAction("Index");
+                        if(image!=null)
+                        {
+                            var imageContent = new MultipartFormDataContent();
+                            byte[] bytes = stream.ToByteArray();
+                            imageContent.Add(new ByteArrayContent(bytes), "image", image.FileName);
+                            HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:7700/Products/ImageUpload", imageContent);
+                            string httpResponseMessageImageUrl = await httpResponseMessage.Content.ReadAsStringAsync();
+                            if (httpResponseMessageImageUrl != null && httpResponseMessageImageUrl != "")
+                            {
+                                model.ImageUrl = httpResponseMessageImageUrl;
+
+                            }
+                        }
+                        //Product Kayıt İşlemi
+                        //model.ImageUrl = model.ImageUrl==null ? oldImageUrl : model.ImageUrl;
+                        var serializeModel = JsonSerializer.Serialize(model);
+                        StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
+                        var result = await httpClient.PutAsync("http://localhost:7700/Products/Update", stringContent);
+                        if (result.IsSuccessStatusCode)
+                        {
+                            return RedirectToAction("Index");
+                        }
+
+
                     }
                 }
             }
