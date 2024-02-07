@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MiniShop.Data.Concrete.Configs;
 using MiniShop.Entity.Concrete;
+using MiniShop.Entity.Concrete.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Data.Concrete.Contexts
 {
-    public class MiniShopDbContext:DbContext
+    public class MiniShopDbContext:IdentityDbContext<User,Role, string>
     {
         public MiniShopDbContext(DbContextOptions options):base(options)
         {
