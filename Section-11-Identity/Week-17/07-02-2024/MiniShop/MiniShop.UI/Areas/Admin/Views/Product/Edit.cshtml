@@ -79,13 +79,13 @@
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Ürün Resmi</label>
-                                            <input type="hidden" value="@Model.ImageUrl"  id="oldImageUrl"></input>
+                                            <input type="hidden" value="@Model.ImageUrl"  id="oldImageUrl" />
                                             <input id="image" name="image" type="file" class="d-none" accept="image/png, image/jpg, image/jpeg" />
                                             <div class="mt-2">
                                                 <label class="btn btn-success" for="image">Ürün Resmini Değiştir</label>
                                             </div>
                                             <span class="text-danger">@ViewBag.ImageErrorMessage</span>
-                                            <img src="/images/products/" id="image-viewer" class="img-fluid" style="height:200px;" />
+                                            <img src="/images/products/@Model.ImageUrl" id="image-viewer" class="img-fluid" style="height:200px;" />
                                         </div>
                                     </div>
 

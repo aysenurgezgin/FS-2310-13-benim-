@@ -76,26 +76,24 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         }
 
 
-        
-
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var product = await _productManager.GetProductWithCategoriesAsync(id);
-                ProductViewModel productViewModel = product.Data;
+            ProductViewModel productViewModel = product.Data;
             var categories = await _categoryManager.GetActiveCategories();
             EditProductViewModel model = new EditProductViewModel
-           {
-              Id = productViewModel.Id,
-               Name = productViewModel.Name,
-               ImageUrl = productViewModel.ImageUrl,
-              IsActive = productViewModel.IsActive,
+            {
+                Id = productViewModel.Id,
+                Name = productViewModel.Name,
+                ImageUrl = productViewModel.ImageUrl,
+                IsActive = productViewModel.IsActive,
                 IsHome = productViewModel.IsHome,
-               Price = productViewModel.Price,
+                Price = productViewModel.Price,
                 Properties = productViewModel.Properties,
                 Url = productViewModel.Url,
-               CategoryIds = productViewModel.CategoryList.Select(c => c.Id).ToList(),
-                Categories = categories.Data
+                CategoryIds = productViewModel.CategoryList.Select(c => c.Id).ToList(),
+                Categories = categories.Data,
             };
             return View(model);
         }
@@ -103,21 +101,16 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(EditProductViewModel model, IFormFile image)
         {
-
             if (ModelState.IsValid && model.CategoryIds.Count > 0)
             {
-
-                if (image!= null)
+                if (image != null)
                 {
-      model.ImageUrl = await _imageHelper.UploadImage(image, "products");
+                    model.ImageUrl = await _imageHelper.UploadImage(image, "products");
                 }
-            
                 model.Url = Jobs.GetUrl(model.Name);
                 await _productManager.UpdateAsync(model);
                 return RedirectToAction("Index");
-
             }
-
             ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
             var categories = await _categoryManager.GetActiveCategories();
             model.Categories = categories.Data;
@@ -128,16 +121,16 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productManager.GetByIdAsync(id);
-            ProductViewModel productViewModel =product.Data;
+            ProductViewModel productViewModel = product.Data;
             DeleteProductViewModel model = new DeleteProductViewModel
-           {
+            {
                 Id = productViewModel.Id,
                 Name = productViewModel.Name,
                 Price = productViewModel.Price,
                 CreatedDate = productViewModel.CreatedDate,
                 ModifiedDate = productViewModel.ModifiedDate,
                 IsDeleted = productViewModel.IsDeleted,
-                ImageUrl = productViewModel.ImageUrl
+                ImageUrl= productViewModel.ImageUrl
             };
             return View(model);
         }
@@ -146,16 +139,15 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         public async Task<IActionResult> HardDelete(int id)
         {
             await _productManager.HardDeleteAsync(id);
-           return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
-
 
         [HttpGet]
         public async Task<IActionResult> SoftDelete(int id)
         {
-           await _productManager.SoftDeleteAsync(id);
-            var productViewModel= await _productManager.GetByIdAsync(id);
-           return Redirect($"/Admin/Product/Index/{!productViewModel.Data.IsDeleted}");
+            await _productManager.SoftDeleteAsync(id);
+            var productViewModel = await _productManager.GetByIdAsync(id);
+            return Redirect($"/Admin/Product/Index/{!productViewModel.Data.IsDeleted}");
         }
     }
 }
