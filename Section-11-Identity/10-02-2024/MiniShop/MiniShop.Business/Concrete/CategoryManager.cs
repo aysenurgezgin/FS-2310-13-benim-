@@ -142,10 +142,9 @@ namespace MiniShop.Business.Concrete
         public async Task<Response<List<CategoryViewModel>>> GetTopCategories(int n)
         {
             var categoryList = await _repository.GetTopCategories(n);
-          
             if (categoryList.Count == 0)
             {
-                return Response<List<CategoryViewModel>>.Fail($"Hiç  kategori bulunamadı");
+                return Response<List<CategoryViewModel>>.Fail($"Hiç kategori bulunamadı");
             }
             var categoryViewModelList = _mapper.Map<List<CategoryViewModel>>(categoryList);
             return Response<List<CategoryViewModel>>.Success(categoryViewModelList);
