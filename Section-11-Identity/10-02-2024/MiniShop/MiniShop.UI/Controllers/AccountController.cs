@@ -34,6 +34,7 @@ namespace MiniShop.UI.Controllers
                     FirstName = registerViewModel.FirsName,
                     LastName = registerViewModel.LastName
                 };
+
                 var result=await _userManager.CreateAsync(user,registerViewModel.Password);//*Hash leme işlmini virgülden sonrası hallediyor.
                 if (result.Succeeded) 
                 {
@@ -41,7 +42,7 @@ namespace MiniShop.UI.Controllers
                     return Redirect("~/");
                 }
             }
-            return View();
+            return View(registerViewModel);
         }
 
         [HttpGet]
@@ -51,13 +52,29 @@ namespace MiniShop.UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel loginViewModel)//*bilgileri buraya alacak.
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)//*bilgileri buraya alacak.
         {
             if(!ModelState.IsValid) 
             {
                 return View(loginViewModel);
             }
-            return View();
+            User user= await _userManager.FindByNameAsync(loginViewModel.UserName);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Kullanıcı bulunamadı.");
+                return View(loginViewModel);
+            }
+            var result =await _signInManager.PasswordSignInAsync(user,loginViewModel.Password,false,false);
+            if(!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Şifre hatalı.");
+                return View(loginViewModel);
+
+            }
+
+
+
+            return RedirectToAction("Index","Home");
         }
     }
 }
