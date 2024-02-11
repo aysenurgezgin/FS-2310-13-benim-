@@ -67,7 +67,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
                     }
                     else
                     {
-                        await _userManager.RemoveFromRolesAsync(user, role.RoleName);
+                        await _userManager.RemoveFromRolesAsync(user, role.RoleName);//hocanın repo!!
                     }
                 }
                 return RedirectToAction("Index");
