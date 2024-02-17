@@ -39,13 +39,13 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<ShoppingCartViewModel>> GetShoppingCartByUserIdAsync(string userId)
         {
-            var  shoppingCart= await _shoppingCartRepository.GetShoppingCartByUserIdAsync(userId);
-            if (shoppingCart == null)
+            var shoppingCart = await _shoppingCartRepository.GetShoppingCartByUserIdAsync(userId);
+            if(shoppingCart == null)
             {
-                return Response<ShoppingCartItemViewModel>.Fail("İlgili kullanıcının sepetinde sorun var,yöteticiye görüşünüz");
-                var result =_mapper.Map<ShoppingCartItemViewModel>(shoppingCart);
-                return Response<ShoppingCartItemViewModel>.Success(result);
+                return Response<ShoppingCartViewModel>.Fail("İlgili kullanıcının sepetinde sorun var, yöneticiyle görüşünüz.");
             }
+            var result = _mapper.Map<ShoppingCartViewModel>(shoppingCart);
+            return Response<ShoppingCartViewModel>.Success(result);
         }
 
         public Task<Response<NoContent>> InitializeShoppingCartAsync(string userId)

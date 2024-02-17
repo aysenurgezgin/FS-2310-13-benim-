@@ -12,10 +12,9 @@ namespace MiniShop.Business.Abstract
     {
         Task<Response<NoContent>> InitializeShoppingCartAsync(string userId);
         Task<Response<ShoppingCartViewModel>> GetShoppingCartByUserIdAsync(string userId);
-        Task<Response<NoContent>> AddToCartAsync(string userId,string shoppingCartId);
-        Task<Response<NoContent>> DeleteFromShoppingCartAsync(int shoppingCartId,int productId);
+        Task<Response<NoContent>> AddToCartAsync(string userId, string shoppingCartId);
+        Task<Response<NoContent>> DeleteFromShoppingCartAsync(int shoppingCartId, int productId);
         Task<Response<NoContent>> ClearShoppingCartAsync(int shoppingCartId);
-
 
     }
 }

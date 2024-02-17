@@ -6,22 +6,24 @@ namespace MiniShop.UI.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private readonly UserManager<User> _userManager
-public ShoppingCartController(UserManager<User> userManager)
+        private readonly UserManager<User> _userManager;
+
+
+        public ShoppingCartController(UserManager<User> userManager)
         {
             _userManager = userManager;
         }
 
-        //Kullanıcının kendi sepetini gösterecek
+        //Kullanıcının sepetini gösterecek
         public IActionResult Index()
         {
             return View();
         }
 
-        public async Task<IActionResult> AddToCart(int productId,int quantity=1)
+        public async Task<IActionResult> AddToCart(int productId, int quantity=1)
         {
             var userId = _userManager.GetUserId(User);
-            
+
         }
     }
 }

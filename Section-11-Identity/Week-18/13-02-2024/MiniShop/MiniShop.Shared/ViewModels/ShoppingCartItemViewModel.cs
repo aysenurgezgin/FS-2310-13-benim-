@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Shared.ViewModels
 {
-    public  class ShoppingCartItemViewModel
+    public class ShoppingCartItemViewModel
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
