@@ -120,7 +120,11 @@
                             <li>KDV hariç tutar: <span>@($"{cartSubTotal:C0}")</span></li>
                             <li>KDV dahil tutar: <span>@($"{cartTotal:C0}")</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Ödeme adımına geç</a>
+                        <a 
+                            asp-area=""
+                            asp-controller="Order"
+                            asp-action="Checkout"
+                            class="primary-btn">Ödeme adımına geç</a>
                     </div>
                 </div>
             </div>

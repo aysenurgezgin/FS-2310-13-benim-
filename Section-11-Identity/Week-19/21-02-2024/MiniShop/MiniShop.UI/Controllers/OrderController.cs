@@ -37,13 +37,19 @@ namespace MiniShop.UI.Controllers
                 LastName = user.LastName,
                 Address = user.Address,
                 City = user.City,
-                Email   = user.Email,
+                Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
-                Note="Lütfen hızlı gelsin."
+                Note = "Lütfen hızlı gelsin.",
+                CardNumber = "4987490000000002",
+                CardName="Sezen Aksu",
+                ExpirationMonth="8",
+                ExpirationYear="2028",
+                Cvc="343",
+                ShoppingCart=shoppingCart.Data
 
             };
             orderViewModel.ShoppingCart = shoppingCart.Data;
-            return View();
+            return View(orderViewModel);
         }
     }
 }
