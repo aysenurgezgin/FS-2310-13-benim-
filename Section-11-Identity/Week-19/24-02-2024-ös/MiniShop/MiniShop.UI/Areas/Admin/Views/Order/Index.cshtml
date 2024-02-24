@@ -1,4 +1,4 @@
-﻿@model List<AdminOrderViewModel>
+﻿@model List<Ord>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,7 +7,15 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Sipariş Takibi</h1>
-                </div><!-- /.col -->
+                </div>
+                <div class="col-sm-6 d-flex align-item-center justify-content-end">
+                    <label class="mr-3 pt-2">Ürüne göre siparişler:</label>
+                        <select asp-items="Model.Product" class="form-control w-50">
+                            <option>Seçiniz</option>
+                         
+                        </select>
+                   
+                </div>
 
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -34,7 +42,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var order in Model)
+                                    @foreach (var order in Model.Orders)
                                     {
                                         <tr>
                                             <td>@order.Id</td>
@@ -70,3 +78,15 @@
 @section Scripts {
     @await Html.PartialAsync("_DataTablesJsPartial")
 }
+
+
+
+@* 
+<select class="form-control w-50">
+    <option>Seçiniz</option>
+    @foreach (var item in Model.Products)
+    {
+        <option>@product.Name</option>
+    }
+
+</select> *@
