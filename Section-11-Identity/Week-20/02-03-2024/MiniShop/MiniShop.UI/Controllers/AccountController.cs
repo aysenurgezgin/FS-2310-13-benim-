@@ -92,8 +92,13 @@ namespace MiniShop.UI.Controllers
             return View();
         }
 
+        public object GetFailedAttempCount()
+        {
+            return failedAttempCount;
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel, object failedAttempCount)
         {
             if(ModelState.IsValid)
             {
@@ -123,15 +128,16 @@ namespace MiniShop.UI.Controllers
                 }
                 else if (result.IsLockedOut)
                 {
-                    var duration = await _signInManager.Options.Lockout.DefaultLockoutTimeSpan.TotalSeconds;
-                    _notyfService.Information($"Hesabınız kilitli.Lütfen {duration} sn sonra yeniden deneyiniz.");
+                    //var duration = await _signInManager.Options.Lockout.DefaultLockoutTimeSpan.TotalSeconds;
+                    //_notyfService.Information($"Hesabınız kilitli.Lütfen {duration} sn sonra yeniden deneyiniz.");
                     return View(loginViewModel);
                 }
             else
                 {
-                    var attempCount == _signInManager.Options.Lockout.MaxFailedAccessAttempts - await
-                   var failedAttempCount = _userManager.GetAccessFailedCountAsync(user);
-                    if (attempCount != failedAttempCount)
+                    var attempCount =_signInManager.Options.Lockout.MaxFailedAccessAttempts - await
+                   //var  failedAttempCount = _userManager.GetAccessFailedCountAsync(user);
+                   // object failedAttempCount = null;
+                    if (attempCount ==failedAttempCount)
                     {
                     }
                     else
