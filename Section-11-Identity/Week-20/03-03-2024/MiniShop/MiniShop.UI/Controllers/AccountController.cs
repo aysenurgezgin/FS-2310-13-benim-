@@ -96,21 +96,24 @@ namespace MiniShop.UI.Controllers
             if(ModelState.IsValid)
             {
                 User user = await _userManager.FindByNameAsync(loginViewModel.UserName);
-                if (user == null)
+                if (user != null)
                 {
-                    _notyfService.Error("Kullanıcı bulunamadı.");
-                    return View(loginViewModel);
-                }
-                var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
+                    //Olası daha önceden kalmış olan cookie yi temizliyoruz
+                    await _signInManager.SignOutAsync();
+                    //Mail onayını kontrol ediyoruz.
+                   var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
                 if (!isConfirmed)
                 {
                     _notyfService.Warning("Hesabınız onaylı değildir. Mailinize gelen onay linkini tıklayarak, onaylayabilirsiniz.");
                     return View(loginViewModel);
                 }
+                //Login olmayı deniyoruz.
                 var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, true);
-                if (result.Succeeded && !result.IsLockedOut)
+                if (result.Succeeded)
                 {
-                    await _userManager.SetLockoutEnabledAsync(user, false);
+                    //await _userManager.SetLockoutEnabledAsync(user, false);
+                    await _userManager.ResetAccessFailedCountAsync(user);
+                    await _userManager.SetLockoutEndDateAsync(user, null);
 
                     var returnUrl = TempData["ReturnUrl"]?.ToString();
                     _notyfService.Information("Giriş başarılı. Hoş geldiniz.");
@@ -122,29 +125,29 @@ namespace MiniShop.UI.Controllers
                 }
                 else if (result.IsLockedOut)
                 {
-                    //Program.cs dosyasında ayarladığımız yeniden deneme için geçmesi gereken süreyi alıyoruz.
-                    var duration =  _signInManager.Options.Lockout.DefaultLockoutTimeSpan.TotalSeconds;
-
-                    //await _userManager.GetLockoutEndDateAsync(user);
-                    _notyfService.Information($"Hesabınız kilitli. Lütfen {duration} sn sonra yeniden deneyiniz.");
+                    var lockoutEndDate = await _userManager.GetLockoutEndDateAsync(user);
+                    var timeLeft = (lockoutEndDate.Value - DateTime.Now).Seconds;
+                    _notyfService.Information($"Hesabınız kilitli. Lütfen {timeLeft} sn sonra yeniden deneyiniz.");
                     return View(loginViewModel);
                 }
                 else
                 {
                     var attempCount = _signInManager.Options.Lockout.MaxFailedAccessAttempts;
                     var failedAttempCount = await _userManager.GetAccessFailedCountAsync(user);
-                    if ( failedAttempCount == 0)
+                    var lockoutEndDate = await _userManager.GetLockoutEndDateAsync(user);
+                    if (lockoutEndDate>DateTime.Now)
                     {
                         await _userManager.SetLockoutEnabledAsync(user, true);
-                        
-                        _notyfService.Information("Hesabınız kilitlendi.");
+                        _notyfService.Information($"Hesabınız{lockoutEndDate.Value.ToString("f")} zamanına kadar kilitlendi.");
                     }
                     else
                     {
                         var accessFailedCount = attempCount - failedAttempCount;
-                        _notyfService.Information($"Kalan hakkınız: {accessFailedCount}");
+                        _notyfService.Information($"Kalan deneme hakkınız: {accessFailedCount}");
                     }
+                }  
                 }
+              
             }
             return View(loginViewModel);
         }
