@@ -81,12 +81,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn update__btn">
-                        <a
-                            asp-area=""
-                            asp-controller="ShoppingCart"
-                            asp-action="ClearCart"
-                            asp-route-id="@Model.Id"
-                        ><span class="icon_trash"></span> Sepeti Boşalt</a>
+                        <a onclick="clearCart(@Model.Id)"><span class="icon_trash"></span> Sepeti Boşalt</a>
                     </div>
                 </div>
             </div>
@@ -124,6 +119,22 @@
 
 @section Scripts{
     <script>
+        
+        function clearCart(id) {
+            $.ajax(
+                url: {`/ShoppingCart/ClearCart/${id}`,
+                type: 'GET',
+                success: () => {
+                    $('#cart-container').html(`  <div class="alert alert-warning text-center p-5">
+                        <span>Sepetinizde ürün bulunmamaktadır.</span>
+                    </div>`);
+                },
+                error: (err) => {
+                    console.err(err);
+                }
+
+            });
+        }
         function decrement(element, id) {
             let qty = element.value;
             let cartTotalElement = $(`#cart_item_total_${id}`);

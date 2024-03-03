@@ -12,7 +12,7 @@ namespace MiniShop.UI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IShoppingCartService _shoppingCartManager;
         private readonly IShoppingCartItemService _shoppingCartItemManager;
-
+        private object cartSubTotal;
 
         public ShoppingCartController(UserManager<User> userManager, IShoppingCartService shoppingCartManager, IShoppingCartItemService shoppingCartItemManager)
         {
@@ -50,7 +50,7 @@ namespace MiniShop.UI.Controllers
             return Json(new {
                 cartItemTotal=cartItemTotal,
                 cartTotal=cartTotal,
-                cartSubTotal=cartSubTotal
+                cartSubTotal = cartSubTotal
             });
         }
     
@@ -60,10 +60,10 @@ namespace MiniShop.UI.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> ClearCart(int id)
+        public async Task ClearCart(int id)
         {
             await _shoppingCartItemManager.ClearShoppingCartAsync(id);
-            return RedirectToAction("Index");
+            
         }
     }
 }
