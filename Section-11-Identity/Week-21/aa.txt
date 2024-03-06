@@ -1,0 +1,10 @@
+1)Genel olarak bir methodun yazım aşamasını bil
+2)Mesela veri tabanında kolon oluşturmak için hangi katman da eklemen gerektiğini bil
+3)Mesela ovviride etmekte ki amaç ne onun neden old.bil
+4)program cs mantığını hatırla
+5)MiniShop app de Baştan bir View oluşturmayıı bil.
+6)AppSetting Json mantığı ne tam olarak
+7)Mapp Profile yapma mantığını otturt
+8)Select mantığı
+9)Asenkron yapma sebebini mant
+10)@model yapma mantığuı
