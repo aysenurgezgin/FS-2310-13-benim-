@@ -41,5 +41,16 @@ namespace MiniShop.Data.Concrete.Repositories
             MiniShopDbContext.ProductCategories.RemoveRange(productCategories);
             await MiniShopDbContext.SaveChangesAsync();
         }
+
+        public async Task<List<Product>> GetProductsByCategoryUrlAsync(string categoryUrl)
+        {
+            List<Product> products = await MiniShopDbContext
+               .Products
+               .Include(p => p.ProductCategories)
+               .ThenInclude(pc => pc.Category)
+               .Where(p => p.ProductCategories.Any(pc => pc.Category.Url == categoryUrl))
+               .ToListAsync();
+            return products;
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace MiniShop.UI.Controllers
             _shoppingCartManager = shoppingCartManager;
             _notyfService = notyfService;
         }
-
+        [Route("Register")]
         [HttpGet]
         public IActionResult Register()
         {
@@ -79,7 +79,7 @@ namespace MiniShop.UI.Controllers
 
             return View(registerViewModel);
         }
-
+        [Route("login")]
         [HttpGet]
         public IActionResult Login(string returnUrl=null)
         {

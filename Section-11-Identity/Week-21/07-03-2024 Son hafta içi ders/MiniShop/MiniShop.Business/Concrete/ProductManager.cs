@@ -201,5 +201,16 @@ namespace MiniShop.Business.Concrete
             var productViewModelList = _mapper.Map<List<ProductViewModel>>(productList);
             return Response<List<ProductViewModel>>.Success(productViewModelList);
         }
+
+        public async Task<Response<List<ProductViewModel>>> GetProductsByCategoryUrlAsync(string categoryUrl)
+        {
+            var productList = await _repository.GetProductsByCategoryUrlAsync(categoryUrl);
+            if (productList == null)
+            {
+                return Response<List<ProductViewModel>>.Fail("Bu kategoride hiç ürün bulunamadı");
+            }
+            var productViewModelList = _mapper.Map<List<ProductViewModel>>(productList);
+            return Response<List<ProductViewModel>>.Success(productViewModelList);
+        }
     }
 }
