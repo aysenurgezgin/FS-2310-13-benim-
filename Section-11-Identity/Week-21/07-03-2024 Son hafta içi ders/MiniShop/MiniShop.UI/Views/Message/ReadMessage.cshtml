@@ -1,0 +1,47 @@
+﻿@model MessageViewModel
+<div class="container p-3 w-50">
+    <h1 class="display-4 text-primary">Gelen Mesaj</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="FromName"></label>
+                <labe class="">@Model.FromName</labe>
+            </div>
+            <div class="form-group">
+                <label asp-for="Text"></label>
+                <label>@Model.Text</label>
+            </div>
+
+
+        </div>
+        </div>
+       
+  
+    <div class="form-group">
+
+        <div class="col-md-6">
+            <form asp-area="" asp-controller="" asp-action="">
+                <div class="form-group mb-2">
+                    <label asp-for="Text"></label>
+                    <textarea class="form-control" rows="4" asp-for="Text"></textarea>
+                </div>
+            </form>
+           <button type="submit" class="btn btn-primary">Yanıtla</button>
+        </div>
+       
+
+        <label asp-for="SendingDate"></label>
+        <label>@Model.SendingDate</label>
+   </div>
+
+   
+   <div>
+        <a asp-area="" asp-controller="Message" asp-action="Index" class="btn btn-primary btn-sm">Geri Dön</a>
+   </div>
+  <div>
+       
+  </div>
+
+    
+</div>
