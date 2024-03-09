@@ -45,11 +45,11 @@ namespace MiniShop.Data.Concrete.Repositories
         public async Task<List<Product>> GetProductsByCategoryUrlAsync(string categoryUrl)
         {
             List<Product> products = await MiniShopDbContext
-               .Products
-               .Include(p => p.ProductCategories)
-               .ThenInclude(pc => pc.Category)
-               .Where(p => p.ProductCategories.Any(pc => pc.Category.Url == categoryUrl))
-               .ToListAsync();
+                .Products
+                .Include(p => p.ProductCategories)
+                .ThenInclude(pc => pc.Category)
+                .Where(p => p.ProductCategories.Any(pc => pc.Category.Url == categoryUrl))
+                .ToListAsync();
             return products;
         }
     }

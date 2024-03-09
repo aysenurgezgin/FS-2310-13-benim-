@@ -57,14 +57,13 @@ namespace MiniShop.UI.Controllers
             var fromUser = await _userManager.FindByIdAsync(_userManager.GetUserId(User));
             model.FromId=fromUser.Id;
             model.FromName = fromUser.UserName;
-            
-            var result = await _messageManager.CreateAsync(model);
-            //Yanıtlanıyor ise;
-            if (model.Text != null)
+            //Yanıtlanıyor ise
+            if (model.ReplyText != null)
             {
-                model.Text = model.Text;
-
+                model.Text = model.ReplyText;
+                
             }
+                var result = await _messageManager.CreateAsync(model);
             if (result.IsSucceeded)
                 _notyfManager.Success("Mesaj başarıyla gönderildi.");
             else

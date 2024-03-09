@@ -15,17 +15,17 @@ namespace MiniShop.UI.Controllers
             _categoryManager = categoryManager;
         }
 
-        public async Task<IActionResult> Index(string categoryUrl)
+        [Route("ece/{categoryUrl?}")]
+        public async Task<IActionResult> Index(string categoryUrl = null)
         {
-            var products =
-                categoryUrl == "" ?
+            var products = 
+                String.IsNullOrEmpty(categoryUrl) ?
                 await _productManager.GetAllNonDeletedAsync() :
                 await _productManager.GetProductsByCategoryUrlAsync(categoryUrl);
-                
-                
-            var category = categoryUrl != null ? await _categoryManager.GetByIdAsync(Convert.ToInt32(id)) : null;
+
+            var category = categoryUrl != "" ? await _categoryManager.GetByUrlAsync(categoryUrl) : null;
             
-            ViewBag.CategoryName = category.Data != null ? category.Data.Name : null;
+            ViewBag.CategoryName = category.IsSucceeded ? category.Data.Name : null;
             
             return View(products.Data);
         }

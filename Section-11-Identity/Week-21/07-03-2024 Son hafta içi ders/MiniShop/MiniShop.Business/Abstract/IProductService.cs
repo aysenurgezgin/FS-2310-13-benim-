@@ -32,7 +32,7 @@ namespace MiniShop.Business.Abstract
         #region Product
         Task<Response<List<ProductViewModel>>> GetProductsByCategoryIdAsync(int categoryId);
         Task<Response<List<ProductViewModel>>> GetProductsByCategoryUrlAsync(string categoryUrl);
-        
+
         #endregion
     }
 }

@@ -57,7 +57,7 @@ namespace MiniShop.Business.Concrete
             {
                 return Response<List<MessageViewModel>>.Fail($"Hiç mesajınız bulunmamaktadır.");
             }
-            messageList = messageList.OrderByDescending(x => x.SendingDate).ToList();
+            messageList= messageList.OrderByDescending(x => x.SendingDate).ToList();
             var messageViewModelList = _mapper.Map<List<MessageViewModel>>(messageList);
             return Response<List<MessageViewModel>>.Success(messageViewModelList);
         }
@@ -84,9 +84,9 @@ namespace MiniShop.Business.Concrete
             return Response<MessageViewModel>.Success(messageViewModel);
         }
 
-        public async Task<Response<int>> GetMessageCountAsync(string ToId, bool isRead = false)
+        public async Task<Response<int>> GetMessageCountAsync(string userId, bool isRead = false)
         {
-            var count = await _repository.GetCount(x => x.FromId==ToId && x.IsRead==isRead);
+            var count = await _repository.GetCount(x => x.ToId==userId && x.IsRead==isRead);
             return Response<int>.Success(count);
         }
 
